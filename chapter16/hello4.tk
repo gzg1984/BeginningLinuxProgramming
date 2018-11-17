@@ -1,0 +1,10 @@
+#!/usr/bin/wish -f
+
+option readfile hello.def
+set w 10 
+pack [button .b -text "Hello\nWorld!!!" \
+                -justify center \
+                -width $w  \
+                -command {set w [ expr $w + 10 ]}]
+bind .b <Control-Button-1> {puts $w }
+bind .b <Control-Button-3> {pack .b }

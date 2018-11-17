@@ -1,0 +1,31 @@
+all:
+	make clean
+	make -f mkfile1
+	make clean
+	make -f mkfile2
+	make clean
+	make -f mkfile3
+	make clean
+	make -f mkfile4
+	make clean
+	make -f mkfile5
+	make clean
+	make -f mkfile6
+	make clean
+
+clean:
+	rm -rf *.o
+
+	
+# DO NOT DELETE
+
+main.o: /usr/include/stdlib.h /usr/include/features.h
+main.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+main.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
+main.o: /usr/include/sys/types.h /usr/include/bits/types.h
+main.o: /usr/include/bits/typesizes.h /usr/include/time.h
+main.o: /usr/include/endian.h /usr/include/bits/endian.h
+main.o: /usr/include/sys/select.h /usr/include/bits/select.h
+main.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+main.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+main.o: /usr/include/alloca.h a.h

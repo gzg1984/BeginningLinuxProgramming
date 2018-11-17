@@ -1,0 +1,51 @@
+head     1.1;
+branch   1.1.1;
+access   ;
+symbols  start:1.1.1.1 wrox:1.1.1;
+locks    ; strict;
+comment  @ * @;
+
+
+1.1
+date     2009.04.22.06.30.36;  author root;  state Exp;
+branches 1.1.1.1;
+next     ;
+
+1.1.1.1
+date     2009.04.22.06.30.36;  author root;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/* main.c */
+#include "a.h"
+#define EXIT_SUCCESS 0
+
+extern void function_two();
+extern void function_three();
+
+int main()
+{
+    function_two();
+    function_three();
+    return (EXIT_SUCCESS);
+}
+@
+
+
+1.1.1.1
+log
+@inital vosp
+@
+text
+@@

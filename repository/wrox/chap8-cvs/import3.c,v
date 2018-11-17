@@ -1,0 +1,57 @@
+head     1.1;
+branch   1.1.1;
+access   ;
+symbols  start:1.1.1.1 wrox:1.1.1;
+locks    ; strict;
+comment  @ * @;
+
+
+1.1
+date     2009.04.22.06.30.36;  author root;  state Exp;
+branches 1.1.1.1;
+next     ;
+
+1.1.1.1
+date     2009.04.22.06.30.36;  author root;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/*
+   This is an important file for managing the project.
+   It implements the canoncial "Hello World" program.
+
+   Filename: $RCSfile$
+*/
+
+#include <stdlib.h>
+#include <stdio.h>
+
+static char *RCSinfo = "$Id$";
+
+int main()
+{
+    printf("Hello World\n");
+    printf("This is an extra line added later\n");
+    printf("This file is under RCS control.  Its ID is \n%s\n", RCSinfo);
+    exit (EXIT_SUCCESS);
+}
+ @
+
+
+1.1.1.1
+log
+@inital vosp
+@
+text
+@@

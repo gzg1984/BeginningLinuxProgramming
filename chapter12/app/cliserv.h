@@ -1,6 +1,4 @@
-/**
 // There follow the required #include headers.
-**/
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -10,25 +8,21 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-/**
 // We then define the named pipes. We use one pipe for the server and one pipe for each client.
 // Since there may be multiple clients, the client incorporates a process ID into the name
 // to ensure that its pipe is unique.
-**/
 
 #define SERVER_PIPE "/tmp/server_pipe"
 #define CLIENT_PIPE "/tmp/client_%d_pipe"
 
 #define ERR_TEXT_LEN 80
 
-/**
 // We implement the commands as enumerated types, rather than #defines.
 // This is a good way of allowing the compiler to do more type checking and also helps
 // in debugging the application, as many debuggers are able to show the name of enumerated
 // constants, but not the name defined by a #define directive.
 // The first typedef gives the type of request being sent to the server, the second
 // the server response to the client.
-**/
 
 typedef enum {
     s_create_new_database = 0,
@@ -47,14 +41,12 @@ typedef enum {
     r_find_no_more
 } server_response_e;
 
-/**
 // Next, we declare a structure that will form the message passed in both directions
 // between the two processes.
 
 // Since we don't actually need to return both a cdc_entry and cdt_entry in the same
 // response, we could have combined them in a union. For simplicity, we keep them separate.
 // This also makes the code easier to maintain.
-**/
 
 typedef struct {
     pid_t               client_pid;
@@ -65,11 +57,9 @@ typedef struct {
     char                error_text[ERR_TEXT_LEN + 1];
 } message_db_t;
 
-/**
 // Finally, we get to the pipe interface functions that perform data transfer implemented
 // in pipe_imp.c. These divide into server- and client-side functions, in the first and
 // second blocks respectively.
-**/
 
 int server_starting(void);
 void server_ending(void);

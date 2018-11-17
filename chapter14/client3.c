@@ -6,7 +6,6 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <unistd.h>
-#include <stdlib.h>
 
 int main()
 {
@@ -35,16 +34,12 @@ int main()
         perror("oops: client3");
         exit(1);
     }
-	sleep(20);
 
 /*  We can now read/write via sockfd.  */
 
     write(sockfd, &ch, 1);
-	sleep(20);
     read(sockfd, &ch, 1);
-	sleep(20);
     printf("char from server = %c\n", ch);
-	sleep(20);
     close(sockfd);
     exit(0);
 }

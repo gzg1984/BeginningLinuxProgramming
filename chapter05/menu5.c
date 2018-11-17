@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
 #include <termios.h>
 #include <term.h>
@@ -15,7 +14,7 @@ char *menu[] = {
 };
 
 int getchoice(char *greet, char *choices[], FILE *in, FILE *out);
-int char_to_terminal(int char_to_write);
+int char_to_terminal(char char_to_write);
 
 int main()
 {
@@ -101,8 +100,8 @@ int getchoice(char *greet, char *choices[], FILE *in, FILE *out)
     return selected;
 }
 
-int char_to_terminal(int char_to_write)
+int char_to_terminal(char char_to_write)
 {
-    if (output_stream) putc((char)char_to_write, output_stream);
+    if (output_stream) putc(char_to_write, output_stream);
     return 0;
 }

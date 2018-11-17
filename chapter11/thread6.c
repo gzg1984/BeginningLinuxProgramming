@@ -8,8 +8,7 @@ void *thread_function(void *arg);
 char message[] = "Hello World";
 int thread_finished = 0;
 
-int main(int ac,char** av) 
-{
+int main() {
     int res;
     pthread_t a_thread;
     void *thread_result;

@@ -28,9 +28,6 @@ int main(int argc, char *argv[])
     int pause_time;
     char op_char = 'O';
 
-	printf("pid=%d\n",getpid());
-	printf("tid=%d\n",syscall(224));
-
     srand((unsigned int)getpid());
     
     sem_id = semget((key_t)1234, 1, 0666 | IPC_CREAT);

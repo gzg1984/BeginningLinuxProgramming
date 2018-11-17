@@ -1,7 +1,6 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <stdio.h>
-#include <stdlib.h>
 
 int main()
 {
@@ -18,7 +17,7 @@ int main()
         exit(1);
     case 0:
         message = "This is the child";
-        n = 100;
+        n = 5;
         break;
     default:
         message = "This is the parent";

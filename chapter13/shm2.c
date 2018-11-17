@@ -39,9 +39,9 @@ int main()
     while(running) {
         while(shared_stuff->written_by_you == 1) {
             sleep(1);            
-            printf("[%s]waiting for client...\n",__FILE__);
+            printf("waiting for client...\n");
         }
-        printf("[%s]Enter some text: ",__FILE__);
+        printf("Enter some text: ");
         fgets(buffer, BUFSIZ, stdin);
         
         strncpy(shared_stuff->some_text, buffer, TEXT_SZ);

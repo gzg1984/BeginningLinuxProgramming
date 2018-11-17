@@ -1,7 +1,6 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <stdio.h>
-#include <stdlib.h>
 
 int main()
 {
@@ -22,7 +21,7 @@ int main()
         break;
     default:
         message = "This is the parent";
-        n = 20;
+        n = 5;
         break;
     }
 

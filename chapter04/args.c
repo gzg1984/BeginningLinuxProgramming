@@ -10,5 +10,5 @@ int main(int argc, char *argv[])
         else
             printf("argument %d: %s\n", arg, argv[arg]);
     }
-    return(0);
+    exit(0);
 }

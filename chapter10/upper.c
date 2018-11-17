@@ -7,5 +7,5 @@ int main()
     while((ch = getchar()) != EOF) {
         putchar(toupper(ch));
     }
-    return(0);
+    exit(0);
 }

@@ -1,11 +1,8 @@
-/**
 // The file starts with #include files and constants.
-**/
 
 #define _POSIX_SOURCE
 
 #include <unistd.h>
-#include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
@@ -16,11 +13,9 @@
 #include "cd_data.h"
 #include "cliserv.h"
 
-/**
 // The static variable mypid reduces the number of calls to getpid that would
 // otherwise be required.
 // We use a local function, read_one_response, to eliminate duplicated code.
-**/
 
 static pid_t mypid;
 

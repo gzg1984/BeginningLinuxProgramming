@@ -51,7 +51,7 @@ static void strip_return(char *string_to_strip);
  to keep track of the currently selected CD catalog entry is initialized.
  We also parse the command line, announce what program is being run and initialize the database. */
 
-int main(int argc, char *argv[])
+void main(int argc, char *argv[])
 {
     menu_options current_option;
     cdc_entry current_cdc_entry;
@@ -496,7 +496,7 @@ static int command_mode(int argc, char *argv[])
 
     /* these externals used by getopt */
     extern char *optarg;
-    extern int optind, opterr, optopt;
+    extern optind, opterr, optopt;
 
     while ((c = getopt(argc, argv, ":i")) != -1) {
         switch(c) {

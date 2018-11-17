@@ -6,19 +6,14 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <unistd.h>
-#include <stdlib.h>
 
-int main(int argc,char** argv)
+int main()
 {
     int sockfd;
     int len;
     struct sockaddr_in address;
     int result;
     char ch = 'A';
-	if(argc == 2)
-	{
-		ch= argv[1][0];
-	}
 
 /*  Create a socket for the client.  */
 
@@ -32,7 +27,9 @@ int main(int argc,char** argv)
     len = sizeof(address);
 
 /*  Now connect our socket to the server's socket.  */
+
     result = connect(sockfd, (struct sockaddr *)&address, len);
+
     if(result == -1) {
         perror("oops: client2");
         exit(1);

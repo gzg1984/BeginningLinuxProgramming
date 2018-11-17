@@ -39,14 +39,8 @@ int main() {
         move(9, 20 + i); 
         addch('*');
         refresh();
-        if (password[i] == '\n')
-		{ 
-			password[i] = '\0';
-			break;
-		}
-		/**
+        if (password[i] == '\n') break;
         if (strcmp(password, real_password) == 0) break;
-		**/
         i++;
     }
 
@@ -60,7 +54,6 @@ int main() {
     else printw("%s", "Wrong");
     refresh();
 
-	sleep(5);
     endwin();
     exit(EXIT_SUCCESS);
 }

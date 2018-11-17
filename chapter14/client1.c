@@ -5,19 +5,14 @@
 #include <stdio.h>
 #include <sys/un.h>
 #include <unistd.h>
-#include <stdlib.h>
 
-int main(int argc,char** argv)
+int main()
 {
     int sockfd;
     int len;
     struct sockaddr_un address;
     int result;
     char ch = 'A';
-	if(argc == 2)
-	{
-		ch = argv[1][0];
-	}
 
 /*  Create a socket for the client.  */
 

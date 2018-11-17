@@ -1,4 +1,3 @@
-#include <stdio.h>
 /*   1  */  typedef struct {
 /*   2  */      char *data;
 /*   3  */      int key;

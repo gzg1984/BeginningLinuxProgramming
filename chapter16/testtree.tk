@@ -2,8 +2,7 @@
 
 # Simple application showing the use of tree mega widget.
 
-#lappend auto_path /usr/local/lib/tk
-lappend auto_path /usr/local/lib/tcl
+lappend auto_path /usr/local/lib/tk
 package require tree
 
 # Now we have to inform the tree widget on parent and tail routines.

@@ -41,11 +41,8 @@ int main()
 
 /*  We can now read/write to client on client_sockfd.  */
 
-		printf("client_address.sun_path[%s]\n",
-						client_address.sun_path);
         read(client_sockfd, &ch, 1);
         ch++;
-		sleep(1);
         write(client_sockfd, &ch, 1);
         close(client_sockfd);
     }

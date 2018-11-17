@@ -3,15 +3,14 @@
     and then initialize the curses structures.  */
 
 #include <stdio.h>
-#include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <curses.h>
 
-int main(int argc , char** argv) 
+int main() 
 {
-    const char witch_one[] = "[ First Witch  ]";
-    const char witch_two[] = "[ Second Witch ]";
+    const char witch_one[] = " First Witch  ";
+    const char witch_two[] = " Second Witch ";
     const char *scan_ptr;
 
     initscr();
@@ -42,27 +41,27 @@ int main(int argc , char** argv)
     move(14,23);
     printw("%s", "When the battle's lost and won.");
     refresh();
-    sleep(20); 
+    sleep(1);
 
 /*  Lastly, the actors are identified and their names are inserted a character
     at the time.We also add the reset function at the end of the main function.  */
 
     attron(A_DIM);
-    scan_ptr = witch_one + strlen(witch_one)  ;
+    scan_ptr = witch_one + strlen(witch_one);
     while(scan_ptr != witch_one) {
         move(10,10);
-        insch(*(--scan_ptr));
+        insch(*scan_ptr--);
     }
 
-    scan_ptr = witch_two + strlen(witch_two) ;
+    scan_ptr = witch_two + strlen(witch_two);
     while (scan_ptr != witch_two) {
         move(13, 10);
-        insch(*(--scan_ptr));
+        insch(*scan_ptr--);
     }
     attroff(A_DIM);
 
     refresh();
-    sleep(20); 
+    sleep(1); 
 
     endwin();
     exit(EXIT_SUCCESS);

@@ -13,7 +13,7 @@ wm iconname . "Menu demo"
 scrollbar .yscroll -orient vertical -command ".text yview"
 font create myfont -family Courier -size 10 -weight bold -slant italic \
     -underline 1 
-text .text -height 100 -width 400 -bg white -yscrollcommand ".yscroll set" -font myfont
+text .text -height 10 -width 40 -bg white -yscrollcommand ".yscroll set" -font myfont
 label .msg -relief sunken -bd 2 -textvariable message -anchor w -font "Helvetica 10"
 .text insert end "Menu Demonstration!"
 

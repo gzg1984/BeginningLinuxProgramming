@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <string.h>
-#include <gdbm/ndbm.h>
+#include <ndbm.h>
 
 #include "cd_data.h"
 

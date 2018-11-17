@@ -2,6 +2,6 @@
 
 pack [button .b -text "Hello\nWorld!!!" \
                 -justify center \
-                -width 90 \
+                -width 20 \
                 -command {puts "Hi"}]
 

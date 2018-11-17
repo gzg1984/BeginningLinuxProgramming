@@ -14,8 +14,6 @@ int main()
     memset(buffer, '\0', sizeof(buffer));
 
     if (pipe(file_pipes) == 0) {
-		printf("file_pipes[0] = %d \n", file_pipes[0]);
-		printf("file_pipes[1] = %d \n", file_pipes[1]);
         fork_result = fork();
         if (fork_result == (pid_t)-1) {
             fprintf(stderr, "Fork failure");

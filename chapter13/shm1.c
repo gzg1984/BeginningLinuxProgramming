@@ -48,7 +48,7 @@ int main()
     shared_stuff->written_by_you = 0;
     while(running) {
         if (shared_stuff->written_by_you) {
-            printf("[%s]You wrote: %s",__FILE__,shared_stuff->some_text);
+            printf("You wrote: %s", shared_stuff->some_text);
             sleep( rand() % 4 ); /* make the other process wait for us ! */
             shared_stuff->written_by_you = 0;
             if (strncmp(shared_stuff->some_text, "end", 3) == 0) {

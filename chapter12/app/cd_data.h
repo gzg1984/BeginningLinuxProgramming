@@ -23,13 +23,11 @@ typedef struct {
     char track_txt[TRACK_TTEXT_LEN + 1];
 } cdt_entry;
 
-/**
 // Now that we have some data structures, we can define some access routines that we'll need.
 // Functions with cdc_ are for catalog entries; functions with cdt_ are for track entries.
 // Notice that some of the functions return data structures.
 // We can indicate the failure of these functions by forcing the contents of the structure
 // to be empty.
-**/
 
 /* Initialization and termination functions */
 

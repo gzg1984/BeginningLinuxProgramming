@@ -10,10 +10,6 @@ int main(int argc, char *argv[])
     int data_processed;
     char buffer[BUFSIZ + 1];
     int file_descriptor;
-	if(argc != 2)
-	{
-		return 0;
-	}
 
     memset(buffer, '\0', sizeof(buffer));
     sscanf(argv[1], "%d", &file_descriptor);

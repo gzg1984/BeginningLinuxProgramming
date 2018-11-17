@@ -1,10 +1,9 @@
 #include <termios.h>
 #include <stdio.h>
-#include <stdlib.h>
 
 #define PASSWORD_LEN 8
 
-int main(int argc,char** argv)
+int main()
 {
     struct termios initialrsettings, newrsettings;
     char password[PASSWORD_LEN + 1];

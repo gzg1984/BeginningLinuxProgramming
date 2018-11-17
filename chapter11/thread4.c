@@ -1,6 +1,4 @@
-#define _REENTRANT
 #include <stdio.h>
-#include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <pthread.h>
@@ -48,7 +46,6 @@ void *thread_function(void *arg) {
     while(strncmp("end", work_area, 3) != 0) {
         printf("You input %d characters\n", strlen(work_area) -1);
         sem_wait(&bin_sem);
-		sleep(2);
     }
     pthread_exit(NULL);
 }

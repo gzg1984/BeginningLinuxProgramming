@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
-#include <gdbm/ndbm.h>
+#include <ndbm.h>
 #include <string.h>
 
 #define TEST_DB_FILE "/tmp/dbm2_test"

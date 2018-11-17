@@ -1,18 +1,13 @@
-#define _REENTRANT
 #include <stdio.h>
-#include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <pthread.h>
 
 void *thread_function(void *arg);
 
-char message[] = "[laskdfjalskdf]";
+char message[] = "Hello World";
 
-int main(int ac,char ** av) 
-{
-	printf("parent tid = %d \n",syscall(224));
-	printf("parent pid = %d \n",getpid());
+int main() {
     int res;
     pthread_t a_thread;
     void *thread_result;
@@ -27,15 +22,12 @@ int main(int ac,char ** av)
         perror("Thread join failed");
         exit(EXIT_FAILURE);
     }
-    printf("Thread joined, it returned {%s}\n", (char *)thread_result);
-    printf("Message is now {%s}\n", message);
+    printf("Thread joined, it returned %s\n", (char *)thread_result);
+    printf("Message is now %s\n", message);
     exit(EXIT_SUCCESS);
 }
 
-void *thread_function(void *arg) 
-{
-	printf("child tid = %d \n",syscall(224));
-	printf("child pid = %d \n",getpid());
+void *thread_function(void *arg) {
     printf("thread_function is running. Argument was %s\n", (char *)arg);
     sleep(3);
     strcpy(message, "Bye!");

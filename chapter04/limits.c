@@ -5,8 +5,6 @@
 #include <sys/time.h>
 #include <unistd.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
 
 // 2  The void function writes a string to a temporary file 10000 times and then performs some arithmetic
 // to generate load on the CPU.

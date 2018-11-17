@@ -6,7 +6,7 @@
 #include "client.h"
 #include <ctype.h>
 
-int main(int ac,char** av)
+int main()
 {
     int server_fifo_fd, client_fifo_fd;
     struct data_to_pass_st my_data;
@@ -32,14 +32,12 @@ int main(int ac,char** av)
 
     for (times_to_send = 0; times_to_send < 5; times_to_send++) {
         sprintf(my_data.some_data, "Hello from %d", my_data.client_pid); 
-        printf("[%d sent %s]\n", my_data.client_pid, my_data.some_data);
+        printf("%d sent %s, ", my_data.client_pid, my_data.some_data);
         write(server_fifo_fd, &my_data, sizeof(my_data));
         client_fifo_fd = open(client_fifo, O_RDONLY);
         if (client_fifo_fd != -1) {
             if (read(client_fifo_fd, &my_data, sizeof(my_data)) > 0) {
-                printf("[%d received: %s]\n", 
-				my_data.client_pid, 
-				my_data.some_data);
+                printf("received: %s\n", my_data.some_data);
             }
             close(client_fifo_fd);
         }

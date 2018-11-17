@@ -8,15 +8,11 @@ void *thread_function(void *arg);
 char message[] = "Hello World";
 int thread_finished = 0;
 
-int main(int ac,char** av) 
-{
+int main() {
     int res;
-	int max_priority ;
-	int min_priority ;
     pthread_t a_thread;
     void *thread_result;
     pthread_attr_t thread_attr;
-	struct sched_param scheduling_value;
 
     res = pthread_attr_init(&thread_attr);
     if (res != 0) {
@@ -42,8 +38,7 @@ int main(int ac,char** av)
     min_priority = sched_get_priority_min(SCHED_OTHER);
     scheduling_value.sched_priority = min_priority;
     res = pthread_attr_setschedparam(&thread_attr, &scheduling_value);
-    if (res != 0) 
-	{
+    if (res != 0) {
         perror("Setting schedpolicy failed");
         exit(EXIT_FAILURE);
     }

@@ -4,10 +4,8 @@
 
 #include <unistd.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <sys/mman.h>
 #include <fcntl.h>
-#include <string.h>
 
 typedef struct {
     int integer;
@@ -25,7 +23,6 @@ int main()
     fp = fopen("records.dat","w+");
     for(i=0; i<NRECORDS; i++) {
         record.integer = i;
-		memset(record.string,0,24);
         sprintf(record.string,"RECORD-%d",i);
         fwrite(&record,sizeof(record),1,fp);
     }
@@ -39,7 +36,6 @@ int main()
     fread(&record,sizeof(record),1,fp);
 
     record.integer = 143;
-	memset(record.string,0,24);
     sprintf(record.string,"RECORD-%d",record.integer);
 
     fseek(fp,43*sizeof(record),SEEK_SET);
@@ -55,7 +51,6 @@ int main()
                           PROT_READ|PROT_WRITE, MAP_SHARED, f, 0);
 
     mapped[43].integer = 243;
-	memset(record.string,0,24);
     sprintf(mapped[43].string,"RECORD-%d",mapped[43].integer);
 
     msync((void *)mapped, NRECORDS*sizeof(record), MS_ASYNC);

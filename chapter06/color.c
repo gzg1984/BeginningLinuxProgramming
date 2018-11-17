@@ -49,7 +49,6 @@ int main()
         sleep(1);
     }
 
-	sleep(10);
     endwin();
     exit(EXIT_SUCCESS);
 }

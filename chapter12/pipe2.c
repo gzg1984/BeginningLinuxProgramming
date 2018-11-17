@@ -24,7 +24,7 @@ int main()
 
         if (fork_result == 0) {
             data_processed = read(file_pipes[0], buffer, BUFSIZ);
-            printf("child Read %d bytes: %s\n", data_processed, buffer);
+            printf("Read %d bytes: %s\n", data_processed, buffer);
             exit(EXIT_SUCCESS);
         }
 
@@ -33,7 +33,7 @@ int main()
         else {
             data_processed = write(file_pipes[1], some_data,
                                    strlen(some_data));
-            printf("parent Wrote %d bytes\n", data_processed);
+            printf("Wrote %d bytes\n", data_processed);
         }
     }
     exit(EXIT_SUCCESS);

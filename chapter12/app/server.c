@@ -1,7 +1,5 @@
-/**
 // Some global variables, a prototype for process_command and a signal catcher to ensure
 // a clean exit.
-**/
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -27,14 +25,12 @@ void catch_signals()
     server_running = 0;
 }
 
-/**
 // Now we come to the main function. After checking that the signal catching routines are
 // all right, the program checks to see whether you passed -i on the command line.
 // If you did, it will create a new database. If the call to the database_initialize routine
 // in cd_dbm.c fails, an error message is shown. If all is well and the server is running,
 // any requests from the client are fed to the process_command function that we'll meet in a
 // moment.
-**/
 
 int main(int argc, char *argv[]) {
     struct sigaction new_action, old_action;
@@ -76,10 +72,8 @@ int main(int argc, char *argv[]) {
     exit(EXIT_SUCCESS);
 }
 
-/**
 // Any client messages are fed to the process_command function, where they are fed into a
 // case statement that makes the appropriate calls to cd_dbm.c.
-**/
 
 static void process_command(const message_db_t comm)
 {

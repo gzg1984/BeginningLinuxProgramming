@@ -514,9 +514,7 @@ void remove_tracks()
     int cat_length;
 
     if (current_cd[0] == '\0')
-	{
-		return;
-	}
+	return;
 
     cat_length = strlen(current_cat);
 
@@ -694,9 +692,7 @@ void update_cd()
     clear_all_screen();
     mvprintw(PROMPT_LINE, 0, "Re-entering tracks for CD. ");
     if (!get_confirm())
-	{
-		return;
-	}
+	return;
     move(PROMPT_LINE, 0);
     clrtoeol();
 

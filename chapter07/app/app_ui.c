@@ -39,7 +39,7 @@ static void display_cdc(const cdc_entry *cdc_to_show);
 static void display_cdt(const cdt_entry *cdt_to_show);
 static void strip_return(char *string_to_strip);
 
-int main(int argc, char *argv[]) {
+void main(int argc, char *argv[]) {
     menu_options current_option;
     cdc_entry current_cdc_entry;
     int command_result;

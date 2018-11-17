@@ -7,7 +7,6 @@
 #include <fcntl.h>
 #include <sys/ioctl.h>
 #include <unistd.h>
-#include <stdlib.h>
 
 int main()
 {
@@ -53,8 +52,7 @@ int main()
                 }
                 nread = read(0,buffer,nread);
                 buffer[nread] = 0;
-                printf("read %d from keyboard: %s\n", nread, buffer);
-				fflush(NULL);
+                printf("read %d from keyboard: %s", nread, buffer);
             }
             break;
         }

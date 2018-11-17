@@ -1,13 +1,9 @@
-/**
 // First the #includes.
-**/
 
 #include "cd_data.h"
 #include "cliserv.h"
 
-/**
 // We also define some values that we need in different functions within the file.
-**/
 
 static int server_fd = -1;
 static pid_t mypid = 0;
@@ -15,12 +11,10 @@ static char client_pipe_name[PATH_MAX + 1] = {'\0'};
 static int client_fd = -1;
 static int client_write_fd = -1;
 
-/**
 // The server_starting routine creates the named pipe from which the server will read commands.
 // It then opens it for reading. This open will block until a client opens the pipe for writing.
 // We use a blocking mode, so that the server can perform blocking reads on the pipe while
 // waiting for commands to be sent to it.
-**/
 
 int server_starting(void)
 {
@@ -41,10 +35,8 @@ int server_starting(void)
     return(1);
 }
 
-/**
 // When the server ends, it removes the named pipe, so clients can detect that no server
 // is running.
-**/
 
 void server_ending(void)
 {
@@ -56,10 +48,8 @@ void server_ending(void)
     (void)unlink(SERVER_PIPE);
 }
 
-/**
 // The read_request_from_client function, shown below, will block reading the server pipe
 // until a client writes a message into it.
-**/
 
 int read_request_from_client(message_db_t *rec_ptr)
 {
@@ -73,14 +63,12 @@ int read_request_from_client(message_db_t *rec_ptr)
     if (server_fd != -1) {
         read_bytes = read(server_fd, rec_ptr, sizeof(*rec_ptr)); 
 
-/**
 // In the special case when no clients have the pipe open for writing, the read will return 0,
 // i.e. it detects an EOF.
 // Then the server closes the pipe and opens it again, so that it blocks until a client also
 // opens the pipe.
 // This is just the same as when the server first starts; we have re-initialized the server.
 // Insert this code in the function above.
-**/
 
         if (read_bytes == 0) {
             (void)close(server_fd);
@@ -95,9 +83,7 @@ int read_request_from_client(message_db_t *rec_ptr)
     return(return_code);
 }
 
-/**
 // First, we open the client pipe.
-**/
 
 int start_resp_to_client(const message_db_t mess_to_send)
 {
@@ -110,10 +96,8 @@ int start_resp_to_client(const message_db_t mess_to_send)
     return(1);
 }
 
-/**
 // The messages are all sent using calls to this function.
 // We'll look at the corresponding client-side functions that field the message soon.
-**/
 
 int send_resp_to_client(const message_db_t mess_to_send)
 {
@@ -129,9 +113,7 @@ int send_resp_to_client(const message_db_t mess_to_send)
     return(1);
 }
 
-/**
 // Finally, we close the client pipe.
-**/
 
 void end_resp_to_client(void)
 {
@@ -145,10 +127,8 @@ void end_resp_to_client(void)
     }
 }
 
-/**
 // After checking that a server is accessible, the client_starting function initializes
 // the client-side pipe.
-**/
 
 int client_starting(void)
 {
@@ -172,9 +152,8 @@ int client_starting(void)
     return(1);
 }
 
-/**
 // The client_ending function closes file descriptors and deletes the now redundant named pipe.
-**/
+
 void client_ending(void)
 {
     #if DEBUG_TRACE    
@@ -187,9 +166,7 @@ void client_ending(void)
     (void)unlink(client_pipe_name);
 }
 
-/**
 // The send_mess_to_server function passes the request through the server pipe.
-**/
 
 int send_mess_to_server(message_db_t mess_to_send)
 {
@@ -206,11 +183,9 @@ int send_mess_to_server(message_db_t mess_to_send)
     return(1);
 }
 
-/**
 // This client function starts to listen for the server response.
 // It opens a client pipe as read-only and then reopens this pipe's file as write-only.
 // We'll see why in a moment.
-**/
 
 int start_resp_from_server(void)
 {
@@ -231,9 +206,7 @@ int start_resp_from_server(void)
     return(0);
 }
 
-/**
 // Here's the main read from the server which gets the matching database entries.
-**/
 
 int read_resp_from_server(message_db_t *rec_ptr)
 {
@@ -252,9 +225,7 @@ int read_resp_from_server(message_db_t *rec_ptr)
     return(return_code);
 }
 
-/**
 // And finally, the client function that marks the end of the server response.
-**/
 
 void end_resp_from_server(void)
 {

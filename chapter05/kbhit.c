@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <termios.h>
 #include <term.h>
 #include <curses.h>
@@ -19,10 +18,8 @@ int main()
 
     init_keyboard();
     while(ch != 'q') {
-		/*
         printf("looping\n");
         sleep(1);
-		**/
         if(kbhit()) {
             ch = readch();
             printf("you hit %c\n",ch);

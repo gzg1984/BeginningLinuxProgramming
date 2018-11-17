@@ -1,9 +1,8 @@
 #include <unistd.h>
 #include <stdlib.h>
-#include <string.h>
 #include <stdio.h>
 
-int main(int ac,char** av)
+int main()
 {
     FILE *write_fp;
     char buffer[BUFSIZ + 1];

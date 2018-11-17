@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <termios.h>
-#include <stdlib.h>
 
 char *menu[] = {
     "a - add new record",

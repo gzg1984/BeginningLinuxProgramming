@@ -10,7 +10,7 @@ int main() {
     size_t  size_to_allocate = A_MEGABYTE;    
     int  megs_obtained = 0;
 
-    while (megs_obtained < 4096) {
+    while (megs_obtained < 16) {
         some_memory = (char *)malloc(size_to_allocate);
         if (some_memory != NULL) {
             megs_obtained++;

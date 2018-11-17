@@ -81,18 +81,7 @@ int main() {
 }
 
 void show_lock_info(struct flock *to_show) {
-	if ( to_show->l_type == F_RDLCK )
-	{
-    	printf("\tl_type %s, ", "F_RDLCK" );
-	}
-	else if ( to_show->l_type == F_WRLCK )
-	{
-    	printf("\tl_type %s, ", "F_WRLCK" );
-	}
-	else
-	{
-    	printf("\tl_type %d, ", to_show->l_type);
-	}
+    printf("\tl_type %d, ", to_show->l_type);
     printf("l_whence %d, ", to_show->l_whence);
     printf("l_start %d, ", (int)to_show->l_start);        
     printf("l_len %d, ", (int)to_show->l_len);

@@ -25,5 +25,5 @@ int main(int argc, char *argv[])
     }
     for(; optind < argc; optind++)
         printf("argument: %s\n", argv[optind]);
-    return (0);
+    exit(0);
 }

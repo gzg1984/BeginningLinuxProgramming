@@ -22,14 +22,3 @@ Makefile6  -  A makefile that manages a library.
 myapp.1   - An example manual page.
 
 file1, file2  -  Two files for testing the diff command.
-
-
-
-cvs gnome
-
-export CVSROOT=pserver:anonymous@anoncvs.gnome.org:/cvs/gnoms
-
-cvs login
-[enter]
-
-cvs -z3 chechout ORBit

@@ -9,5 +9,5 @@ int main()
 {
     function_two();
     function_three();
-    return (EXIT_SUCCESS);
+    exit (EXIT_SUCCESS);
 }

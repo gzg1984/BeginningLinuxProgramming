@@ -19,7 +19,7 @@ typedef struct {
 int main()
 {
     RECORD record, *mapped;
-    int i, f;
+    int i;
     FILE *fp;
 
     fp = fopen("records.dat","w+");
@@ -49,7 +49,7 @@ int main()
 /*  We now map the records into memory
     and access the 43rd record in order to change the integer to 243
     (and update the record string), again using memory mapping.  */
-
+    int f;
     f = open("records.dat",O_RDWR);
     mapped = (RECORD *)mmap(0, NRECORDS*sizeof(record), 
                           PROT_READ|PROT_WRITE, MAP_SHARED, f, 0);

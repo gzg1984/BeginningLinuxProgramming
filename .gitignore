@@ -1,2 +1,6 @@
 .vscode/launch.json
 .vscode/tasks.json
+chapter03/block
+file.out
+records.dat
+chapter03/mmap

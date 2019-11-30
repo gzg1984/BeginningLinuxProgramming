@@ -1,7 +1,6 @@
-bill.o
-fred.o
 hello
-libfoo.a
 program
-program.o
+*.o
+*.a
+
 
